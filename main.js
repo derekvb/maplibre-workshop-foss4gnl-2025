@@ -10,3 +10,8 @@ const map = new maplibregl.Map({
     center: [5.66509, 51.96857], // starting position [lng, lat]
     zoom: 13 // starting zoom
 });
+
+map.addSource('wandeling', {
+    type: 'geojson',
+    data: './assets/wandeling.geojson'
+});
