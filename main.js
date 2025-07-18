@@ -11,12 +11,13 @@ const map = new maplibregl.Map({
     zoom: 13 // starting zoom
 });
 
-map.addSource('wandeling', {
-    type: 'geojson',
-    data: './assets/wandeling.geojson'
-});
+map.on('load', () => {
+    map.addSource('wandeling', {
+        type: 'geojson',
+        data: './assets/wandeling.geojson'
+    });
 
-map.addLayer({
+    map.addLayer({
         id: 'wandeling',
         type: 'line',
         source: 'wandeling',
@@ -26,9 +27,9 @@ map.addLayer({
                 ["exponential", 2.5],
                 ["zoom"],
                 11,
-                "rgb(229, 53, 176)",
+                "rgba(12, 12, 12, 1)",
                 18,
-                "rgb(255, 197, 241)"
+                "rgba(211, 233, 13, 1)"
             ],
             "line-dasharray": [
                 "step",
@@ -49,4 +50,5 @@ map.addLayer({
                 12
             ]
         },
-    })
+    });
+});
